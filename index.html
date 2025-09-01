@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bubble Pop Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Bubble Pop! </h1>
+      </div>
+      <div class="hud">
+        <div class="pill">Score: <span id="score">0</span></div>
+        <div class="pill">Time: <span id="time">60</span>s</div>
+        <div class="pill">Combo: <span id="combo">x1</span></div>
+        <button id="btnPause" class="btn">Pause</button>
+        <button id="btnRestart" class="btn warn">Restart</button>
+      </div>
+    </header>
+
+    <div class="board-wrap">
+      <div id="board"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite">Great combo!</div>
+
+      <div id="overlay" class="overlay" aria-hidden="false">
+        <div class="card">
+          <h2 style="margin:0 0 8px">Pop bubbles to score points</h2>
+          <p class="muted" style="margin:0">Each bubble has a number = points. Chain pops quickly for a combo multiplier!</p>
+          <div class="grid">
+            <div class="select">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="normal" selected>Normal</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <div class="select">
+              <label for="duration">Duration</label>
+              <select id="duration">
+                <option value="30">30s</option>
+                <option value="45">45s</option>
+                <option value="60" selected>60s</option>
+                <option value="90">90s</option>
+              </select>
+            </div>
+            <label class="checkbox">
+              <input id="spawnMove" type="checkbox" checked />
+              Moving bubbles
+            </label>
+            <label class="checkbox">
+              <input id="allowNeg" type="checkbox" />
+              Bonus red bubbles (double points)
+            </label>
+          </div>
+          <div style="margin-top:16px; display:flex; gap:10px; justify-content:center">
+            <button id="btnStart" class="btn primary">Start Game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px">Tip: Try to pop multiple bubbles quickly to build combo (resets after ~800ms).</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
