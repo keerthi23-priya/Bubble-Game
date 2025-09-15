@@ -47,7 +47,7 @@ function makeBubble(){
   if(isBonus) el.style.outline = '3px solid var(--danger)';
   board.appendChild(el);
 
-  const speed = rand(30, 70) / 100;
+  const speed = rand(10, 25) / 100;
   const drift = state.move ? rand(-0.05, 0.05) : 0;
 
   const bubble = { id, el, x, y, size, val, vx: drift, vy: -speed, born: performance.now(), dead:false };
@@ -84,7 +84,7 @@ function update(ts){
   const rm = [];
   state.bubbles.forEach(b => {
     b.x += b.vx * 16;
-    b.y += b.vy * 16;
+    b.y += b.vy * 12; 
     if(state.move){ b.x += Math.sin((ts-b.born)/300) * 0.6 }
     positionBubble(b);
     if(b.y + b.size < -40) rm.push(b.id);
